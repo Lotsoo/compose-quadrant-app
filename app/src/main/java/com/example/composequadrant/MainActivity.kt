@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -17,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeQuadrantTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
+                Scaffold() {
                     ComposeQuadrantApp()
                 }
             }
@@ -42,30 +42,30 @@ fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
     Column(modifier.fillMaxSize()) {
         Row(modifier.weight(1f)) {
             ComposeCard(
-                title = "Text composable",
-                description = "Displays text and follows the recommended Material Design guidelines.",
+                title = stringResource(R.string.title_1),
+                description = stringResource(R.string.description_1),
                 backgroundColor = Color(0xFFEADDFF),
                 modifier.weight(1f)
             )
             ComposeCard(
-                title = "Image composable",
-                description = "Creates a composable that lays out and draws a given Painter class object.",
+                title = stringResource(R.string.title_2),
+                description = stringResource(R.string.description_2),
                 backgroundColor = Color(0xFFD0BCFF),
-                modifier.weight(1f)
+                modifier = modifier.weight(1f)
             )
         }
         Row(modifier.weight(1f)) {
             ComposeCard(
-                title = "Row composable",
-                description = "A layout composable that places its children in a horizontal sequence.",
+                title = stringResource(R.string.title_3),
+                description = stringResource(R.string.description_3),
                 backgroundColor = Color(0xFFB69DF8),
-                modifier.weight(1f)
+                modifier = modifier.weight(1f)
             )
             ComposeCard(
-                title = "Column composable",
-                description = "A layout composable that places its children in a vertical sequence.",
+                title = stringResource(R.string.title_4),
+                description = stringResource(R.string.description_4),
                 backgroundColor = Color(0xFFF6EDFF),
-                modifier.weight(1f)
+                modifier = modifier.weight(1f)
             )
         }
     }
