@@ -40,10 +40,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
-    ComposeCard(
-        title = "Text composable",
-        description = "Displays text and follows the recommended Material Design guidelines.",
-    )
+    Row(modifier) {
+        ComposeCard(
+            title = "Text composable",
+            description = "Displays text and follows the recommended Material Design guidelines.",
+            modifier.weight(1f)
+        )
+        ComposeCard(
+            title = "Image composable",
+            description = "Creates a composable that lays out and draws a given Painter class object.",
+            modifier.weight(1f)
+        )
+    }
 
 }
 
