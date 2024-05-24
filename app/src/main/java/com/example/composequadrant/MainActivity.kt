@@ -1,6 +1,5 @@
 package com.example.composequadrant
 
-import android.media.MediaDescription
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,8 +29,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeQuadrantTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    ComposeQuadrantApp()
                 }
             }
         }
@@ -40,16 +39,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
-    Column(modifier) {
+    Column(modifier.fillMaxSize()) {
         Row(modifier.weight(1f)) {
             ComposeCard(
                 title = "Text composable",
                 description = "Displays text and follows the recommended Material Design guidelines.",
+                backgroundColor = Color(0xFFEADDFF),
                 modifier.weight(1f)
             )
             ComposeCard(
                 title = "Image composable",
                 description = "Creates a composable that lays out and draws a given Painter class object.",
+                backgroundColor = Color(0xFFD0BCFF),
                 modifier.weight(1f)
             )
         }
@@ -57,11 +58,13 @@ fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
             ComposeCard(
                 title = "Row composable",
                 description = "A layout composable that places its children in a horizontal sequence.",
+                backgroundColor = Color(0xFFB69DF8),
                 modifier.weight(1f)
             )
             ComposeCard(
                 title = "Column composable",
                 description = "A layout composable that places its children in a vertical sequence.",
+                backgroundColor = Color(0xFFF6EDFF),
                 modifier.weight(1f)
             )
         }
@@ -70,10 +73,16 @@ fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ComposeCard(title: String, description: String, modifier: Modifier = Modifier) {
+fun ComposeCard(
+    title: String,
+    description: String,
+    backgroundColor: Color,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier
             .fillMaxSize()
+            .background(backgroundColor)
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -82,7 +91,7 @@ fun ComposeCard(title: String, description: String, modifier: Modifier = Modifie
             text = title,
             Modifier.padding(bottom = 16.dp),
             fontWeight = FontWeight.Bold,
-            )
+        )
         Text(
             text = description,
             textAlign = TextAlign.Justify
