@@ -38,3 +38,39 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun ComposeQuadrantApp(modifier: Modifier = Modifier) {
+    ComposeCard(
+        title = "Text composable",
+        description = "Displays text and follows the recommended Material Design guidelines.",
+    )
+
+}
+
+@Composable
+fun ComposeCard(title: String, description: String, modifier: Modifier = Modifier) {
+    Column(
+        modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = title,
+            Modifier.padding(bottom = 16.dp),
+            fontWeight = FontWeight.Bold,
+            )
+        Text(
+            text = description,
+            textAlign = TextAlign.Justify
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ComposeQuadrantAppPreview() {
+    ComposeQuadrantApp()
+}
+
